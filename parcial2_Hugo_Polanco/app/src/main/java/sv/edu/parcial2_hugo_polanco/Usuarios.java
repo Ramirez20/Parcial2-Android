@@ -23,7 +23,4 @@ public class Usuarios {
         return empresa;
     }
 
-    public int getCompania() {
-        return getCompania();
-    }
 }

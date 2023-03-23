@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         TextView tv2= item.findViewById(R.id.txvDos);
         tv2.setText(listaempleados.get(position).getCargo());
         TextView tv3= item.findViewById(R.id.txvTres);
-        tv3.setText(listaempleados.get(position).getCompania());
+        tv3.setText(listaempleados.get(position).getEmpresa());
         ImageView img1= item.findViewById(R.id.imvImagen);
         img1.setImageResource(ImgEempleados[position]);
         return item;
