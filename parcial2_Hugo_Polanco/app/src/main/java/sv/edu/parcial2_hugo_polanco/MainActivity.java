@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -49,10 +50,13 @@ public class MainActivity extends AppCompatActivity {
         AppCompatActivity appCompatActivity;
         AdapatdorEmpleados(AppCompatActivity context){
             super(context, R.layout.listas, listaempleados);
-        } appCompatActivity=context;    }
+            appCompatActivity=context;
+        }
+
     public View getView(int position, View convertView, ViewGroup parent){
+
         LayoutInflater inflater= appCompatActivity.getLayoutInflater();
-        View item= inflater.inflate(R.layout.empleados, null);
+        View item= inflater.inflate(R.layout.listas, null);
 
         TextView tv1= item.findViewById(R.id.txvUno);
         tv1.setText(listaempleados.get(position).getNombre());
@@ -60,9 +64,11 @@ public class MainActivity extends AppCompatActivity {
         tv2.setText(listaempleados.get(position).getCargo());
         TextView tv3= item.findViewById(R.id.txvTres);
         tv3.setText(listaempleados.get(position).getCompania());
-        ImageView img1= item.findViewById(R.id.imvFoto);
+        ImageView img1= item.findViewById(R.id.imvImagen);
         img1.setImageResource(ImgEempleados[position]);
         return item;
     }
+
+}
 
 }

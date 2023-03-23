@@ -22,4 +22,8 @@ public class Usuarios {
     public String getEmpresa() {
         return empresa;
     }
+
+    public int getCompania() {
+        return getCompania();
+    }
 }
