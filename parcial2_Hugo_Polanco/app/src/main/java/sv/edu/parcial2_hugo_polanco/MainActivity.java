@@ -3,7 +3,12 @@ package sv.edu.parcial2_hugo_polanco;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -39,6 +44,25 @@ public class MainActivity extends AppCompatActivity {
         listaempleados.add(new Usuarios("Alexa Giraldo", "Lead Programmer", "Frutisofy"));
         listaempleados.add(new Usuarios("Linda Murillo", "Directora de Marketing", "Seguros Boliver"));
         listaempleados.add(new Usuarios("Lizeth Astrada", "CEO", "Concesionario Motolox"));
+    }
+    class AdapatdorEmpleados extends ArrayAdapter<Usuarios> {
+        AppCompatActivity appCompatActivity;
+        AdapatdorEmpleados(AppCompatActivity context){
+            super(context, R.layout.listas, listaempleados);
+        } appCompatActivity=context;    }
+    public View getView(int position, View convertView, ViewGroup parent){
+        LayoutInflater inflater= appCompatActivity.getLayoutInflater();
+        View item= inflater.inflate(R.layout.empleados, null);
+
+        TextView tv1= item.findViewById(R.id.txvUno);
+        tv1.setText(listaempleados.get(position).getNombre());
+        TextView tv2= item.findViewById(R.id.txvDos);
+        tv2.setText(listaempleados.get(position).getCargo());
+        TextView tv3= item.findViewById(R.id.txvTres);
+        tv3.setText(listaempleados.get(position).getCompania());
+        ImageView img1= item.findViewById(R.id.imvFoto);
+        img1.setImageResource(ImgEempleados[position]);
+        return item;
     }
 
 }
